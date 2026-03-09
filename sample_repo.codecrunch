@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codecrunch version="0.1" repo="sample_repo">
+  <metadata>
+    <files_count>5</files_count>
+    <generated_at>2026-03-09T03:51:39Z</generated_at>
+  </metadata>
+  <dependency_graph>
+    <node name="config.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="database.py">
+      <depends_on>
+        <dep>config.py</dep>
+      </depends_on>
+    </node>
+    <node name="main.py">
+      <depends_on>
+        <dep>models.py</dep>
+        <dep>utils.py</dep>
+      </depends_on>
+    </node>
+    <node name="models.py">
+      <depends_on>
+        <dep>database.py</dep>
+      </depends_on>
+    </node>
+    <node name="utils.py">
+      <depends_on>
+        <dep>config.py</dep>
+      </depends_on>
+    </node>
+  </dependency_graph>
+  <modules>
+    <module path="config.py">
+      <classes />
+      <functions />
+      <imports />
+      <summary>Configuration module that defines DATABASE_URL, DEBUG, SECRET_KEY, and LOG_LEVEL constants. Leaf dependency with no internal imports.</summary>
+    </module>
+    <module path="database.py">
+      <classes />
+      <functions>
+        <function>get_connection</function>
+        <function>close_connection</function>
+      </functions>
+      <imports>
+        <import>from config import DATABASE_URL, DEBUG</import>
+      </imports>
+      <summary>Database connection and session management. Provides get_connection and close_connection. Depends on: config.</summary>
+    </module>
+    <module path="main.py">
+      <classes />
+      <functions>
+        <function>main</function>
+      </functions>
+      <imports>
+        <import>from utils import log, format_response</import>
+        <import>from models import User, fetch_user</import>
+      </imports>
+      <summary>Application entry point. Orchestrates startup, loads User via models, formats output via utils. Depends on: utils, models.</summary>
+    </module>
+    <module path="models.py">
+      <classes>
+        <class>User</class>
+      </classes>
+      <functions>
+        <function>__init__</function>
+        <function>to_dict</function>
+        <function>fetch_user</function>
+      </functions>
+      <imports>
+        <import>from database import get_connection</import>
+      </imports>
+      <summary>Data models. Defines User and fetch_user for DB access. Depends on: database.</summary>
+    </module>
+    <module path="utils.py">
+      <classes />
+      <functions>
+        <function>log</function>
+        <function>format_response</function>
+      </functions>
+      <imports>
+        <import>from config import LOG_LEVEL, DEBUG</import>
+      </imports>
+      <summary>Utility functions for logging and response formatting. Depends on: config.</summary>
+    </module>
+  </modules>
+</codecrunch>
