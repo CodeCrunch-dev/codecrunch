@@ -32,10 +32,23 @@ If no path is given, defaults to `sample_repo`.
 | `artifact.py` | Defines the `.codecrunch` XML format; builds, saves, and loads artifacts |
 | `summarizer.py` | Prompt template and pipeline for LLM summarization (mock mode for Phase 1) |
 
-## Phase 2 Handoff
+## Phase Status
 
-For Phase 2, Aryan needs to:
+Phase 1 complete: parser, ingestion, import analyzer, artifact schema (XML `.codecrunch`), summarizer spike (mock summaries).
 
-1. **Implement `summarize_module` with `mock=False`** — Wire up the Claude API using the existing `build_summary_prompt` template and function signature
-2. **Extend the parser** — Add support for TypeScript/JavaScript (tree-sitter-* grammars)
-3. **Build AST structural hashing** — Implement pattern detection via hashed AST subtrees for similarity/code-smell detection
+Phase 2 complete: multi-language ingestion (py/js/ts), JS/TS parsing (tree-sitter), JS/TS dependency graph resolution (relative + require best-effort), AST structural hashing + clustering (pattern detection), artifact assembler pipeline, batching + on-disk summary cache (mock-only), token counting (heuristic + optional `tiktoken`), fixtures + tests.
+
+Notes:
+- The summarizer cache is written to `.codecrunch_summaries_cache.json` at the analyzed repo root (best-effort; cache failures do not break the pipeline).
+- Token metrics are reported as raw included source tokens vs artifact tokens.
+
+## Phase 3 (Hunter) — Plugin & CLI
+
+Done when: VS Code extension works end-to-end on a local repo.
+
+To do:
+1. Build CLI tool: `codecrunch <path>` or `codecrunch <github-url>` outputs `.codecrunch` artifact
+2. Build VS Code extension scaffold: reads `.codecrunch`, injects context before AI query
+3. Integrate with VS Code AI context API (or prepend to prompt as fallback)
+4. Run full pipeline on 3 demo repos, fix bugs, tune compression to reliably hit <10K tokens on ~50-file repos
+5. Write benchmarking harness: 5 questions x 4 conditions (naive / RAG / Repomix / CodeCrunch)

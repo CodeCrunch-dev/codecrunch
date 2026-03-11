@@ -2,7 +2,7 @@
 <codecrunch version="0.1" repo="sample_repo">
   <metadata>
     <files_count>5</files_count>
-    <generated_at>2026-03-09T03:51:39Z</generated_at>
+    <generated_at>2026-03-11T04:22:59Z</generated_at>
   </metadata>
   <dependency_graph>
     <node name="config.py" type="leaf">
@@ -35,7 +35,7 @@
       <classes />
       <functions />
       <imports />
-      <summary>Configuration module that defines DATABASE_URL, DEBUG, SECRET_KEY, and LOG_LEVEL constants. Leaf dependency with no internal imports.</summary>
+      <summary>PLACEHOLDER - will be filled by LLM summarizer in Phase 2</summary>
     </module>
     <module path="database.py">
       <classes />
@@ -46,7 +46,7 @@
       <imports>
         <import>from config import DATABASE_URL, DEBUG</import>
       </imports>
-      <summary>Database connection and session management. Provides get_connection and close_connection. Depends on: config.</summary>
+      <summary>PLACEHOLDER - will be filled by LLM summarizer in Phase 2</summary>
     </module>
     <module path="main.py">
       <classes />
@@ -57,7 +57,7 @@
         <import>from utils import log, format_response</import>
         <import>from models import User, fetch_user</import>
       </imports>
-      <summary>Application entry point. Orchestrates startup, loads User via models, formats output via utils. Depends on: utils, models.</summary>
+      <summary>PLACEHOLDER - will be filled by LLM summarizer in Phase 2</summary>
     </module>
     <module path="models.py">
       <classes>
@@ -71,7 +71,7 @@
       <imports>
         <import>from database import get_connection</import>
       </imports>
-      <summary>Data models. Defines User and fetch_user for DB access. Depends on: database.</summary>
+      <summary>PLACEHOLDER - will be filled by LLM summarizer in Phase 2</summary>
     </module>
     <module path="utils.py">
       <classes />
@@ -82,7 +82,7 @@
       <imports>
         <import>from config import LOG_LEVEL, DEBUG</import>
       </imports>
-      <summary>Utility functions for logging and response formatting. Depends on: config.</summary>
+      <summary>PLACEHOLDER - will be filled by LLM summarizer in Phase 2</summary>
     </module>
   </modules>
 </codecrunch>

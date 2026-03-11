@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
 
-def build_artifact(repo_data: dict, dependency_graph: dict) -> str:
+def build_artifact(repo_data: dict, dependency_graph: dict, patterns: list[dict] | None = None) -> str:
     """
     Build a structured XML string from repo_data and dependency_graph.
 
@@ -41,6 +41,24 @@ def build_artifact(repo_data: dict, dependency_graph: dict) -> str:
         depends_on = ET.SubElement(node_elem, "depends_on")
         for dep in sorted(outgoing[node_name]):
             ET.SubElement(depends_on, "dep").text = dep
+
+    # Patterns (Phase 2)
+    if patterns:
+        patterns_elem = ET.SubElement(root, "patterns")
+        for p in patterns:
+            cluster_elem = ET.SubElement(
+                patterns_elem,
+                "cluster",
+                {
+                    "id": str(p.get("id", "")),
+                    "representative": str(p.get("representative", "")),
+                    "threshold": str(p.get("threshold", "")),
+                    "fingerprint": str(p.get("fingerprint", "")),
+                },
+            )
+            members_elem = ET.SubElement(cluster_elem, "members")
+            for m in p.get("members", []) or []:
+                ET.SubElement(members_elem, "member").text = str(m)
 
     # Build path -> file_info lookup (use normalized relative path)
     path_to_file = {}

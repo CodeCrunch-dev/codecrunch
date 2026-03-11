@@ -1,7 +1,10 @@
 """Module for summarizing code structure and relationships."""
 
+import json
 import os
 import xml.etree.ElementTree as ET
+from pathlib import Path
+from typing import Any
 
 
 def build_summary_prompt(filepath: str, source_code: str, structure: dict) -> str:
@@ -89,7 +92,46 @@ def summarize_module(
     return " ".join(parts)
 
 
-def summarize_repo(repo_data: dict, mock: bool = True) -> dict:
+def _default_cache_path(repo_path: str) -> str:
+    return os.path.join(repo_path, ".codecrunch_summaries_cache.json")
+
+
+def _load_cache(cache_path: str) -> dict[str, Any]:
+    try:
+        with open(cache_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, dict):
+            return data
+    except FileNotFoundError:
+        return {}
+    except Exception:
+        return {}
+    return {}
+
+
+def _save_cache(cache_path: str, cache: dict[str, Any]) -> None:
+    tmp_path = str(Path(cache_path).with_suffix(".tmp"))
+    with open(tmp_path, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=True, indent=2, sort_keys=True)
+    os.replace(tmp_path, cache_path)
+
+
+def _cache_key(rel_path: str, full_path: str, structure: dict) -> str:
+    try:
+        mtime = int(os.path.getmtime(full_path))
+    except OSError:
+        mtime = 0
+    extractor_version = structure.get("extractor_version", "unknown")
+    return f"{rel_path}|{mtime}|{extractor_version}"
+
+
+def summarize_repo(
+    repo_data: dict,
+    mock: bool = True,
+    *,
+    batch_size: int = 10,
+    cache_path: str | None = None,
+) -> dict:
     """
     Summarize all modules in the repo.
 
@@ -98,17 +140,39 @@ def summarize_repo(repo_data: dict, mock: bool = True) -> dict:
     repo_path = repo_data["repo_path"]
     summaries = {}
 
-    for file_info in repo_data["files"]:
-        full_path = file_info["filepath"]
-        rel_path = os.path.relpath(full_path, repo_path).replace(os.sep, "/")
+    if cache_path is None:
+        cache_path = _default_cache_path(repo_path)
+    cache = _load_cache(cache_path) if cache_path else {}
 
-        with open(full_path, "r", encoding="utf-8") as f:
-            source_code = f.read()
+    files = list(repo_data["files"])
+    if batch_size <= 0:
+        batch_size = 10
 
-        summary = summarize_module(
-            full_path, source_code, file_info, mock=mock
-        )
-        summaries[rel_path] = summary
+    for i in range(0, len(files), batch_size):
+        batch = files[i : i + batch_size]
+        for file_info in batch:
+            full_path = file_info["filepath"]
+            rel_path = os.path.relpath(full_path, repo_path).replace(os.sep, "/")
+
+            key = _cache_key(rel_path, full_path, file_info)
+            cached = cache.get(key)
+            if isinstance(cached, str) and cached:
+                summaries[rel_path] = cached
+                continue
+
+            with open(full_path, "r", encoding="utf-8") as f:
+                source_code = f.read()
+
+            summary = summarize_module(full_path, source_code, file_info, mock=mock)
+            summaries[rel_path] = summary
+            cache[key] = summary
+
+    if cache_path:
+        try:
+            _save_cache(cache_path, cache)
+        except Exception:
+            # Cache failures should not break the pipeline.
+            pass
 
     return summaries
 

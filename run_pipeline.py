@@ -8,10 +8,9 @@ import sys
 # Ensure project root is on path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from codecrunch.ingestion import ingest_repo
-from codecrunch.import_analyzer import build_dependency_graph, print_dependency_graph
-from codecrunch.artifact import build_artifact, save_artifact
-from codecrunch.summarizer import summarize_repo, inject_summaries
+from codecrunch.artifact import save_artifact
+from codecrunch.import_analyzer import print_dependency_graph
+from codecrunch.pipeline import run
 
 
 def main():
@@ -32,38 +31,23 @@ def main():
     repo_name = os.path.basename(repo_path.rstrip(os.sep))
     output_path = os.path.join(os.getcwd(), f"{repo_name}.codecrunch")
 
-    # 1. Ingest
-    repo_data = ingest_repo(repo_path)
+    xml_final, metrics = run(repo_path, mock_summaries=True)
 
-    # 2. Build dependency graph
-    dependency_graph = build_dependency_graph(repo_data)
+    # Print dependency graph
+    print_dependency_graph(metrics["dependency_graph"])
 
-    # 3. Print dependency graph
-    print_dependency_graph(dependency_graph)
-
-    # 4. Build artifact
-    xml_string = build_artifact(repo_data, dependency_graph)
-
-    # 5. Summarize (mock mode)
-    summaries = summarize_repo(repo_data, mock=True)
-
-    # 6. Inject summaries
-    xml_final = inject_summaries(xml_string, summaries)
-
-    # 7. Save
+    # Save
     save_artifact(xml_final, output_path)
-
-    # 8. Summary
-    files_processed = repo_data["files_found"]
-    edges_found = len(dependency_graph["edges"])
-    artifact_size = len(xml_final.encode("utf-8"))
 
     print("\n" + "=" * 40)
     print("Pipeline complete")
     print("=" * 40)
-    print(f"Files processed:  {files_processed}")
-    print(f"Edges found:      {edges_found}")
-    print(f"Artifact size:    {artifact_size} bytes")
+    print(f"Files processed:  {metrics['files_processed']}")
+    print(f"Edges found:      {metrics['edges_found']}")
+    print(f"Patterns:         {metrics['patterns_clusters']} clusters (largest={metrics['patterns_largest_cluster']})")
+    print(f"Raw tokens:       {metrics['raw_tokens']}")
+    print(f"Artifact tokens:  {metrics['artifact_tokens']}")
+    print(f"Artifact size:    {metrics['artifact_bytes']} bytes")
     print(f"Output path:      {output_path}")
 
 
