@@ -1,0 +1,1305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codecrunch version="0.1" repo="flask">
+  <metadata>
+    <files_count>35</files_count>
+    <generated_at>2026-03-12T03:11:41Z</generated_at>
+  </metadata>
+  <dependency_graph>
+    <node name="docs/conf.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="examples/celery/make_celery.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="examples/celery/src/task_app/__init__.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="examples/celery/src/task_app/tasks.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="examples/celery/src/task_app/views.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="examples/javascript/js_example/__init__.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="examples/javascript/js_example/views.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="examples/tutorial/flaskr/__init__.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="examples/tutorial/flaskr/auth.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="examples/tutorial/flaskr/blog.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="examples/tutorial/flaskr/db.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/__init__.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/__main__.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/app.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/blueprints.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/cli.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/config.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/ctx.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/debughelpers.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/globals.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/helpers.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/json/__init__.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/json/provider.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/json/tag.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/logging.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/sansio/app.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/sansio/blueprints.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/sansio/scaffold.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/sessions.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/signals.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/templating.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/testing.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/typing.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/views.py" type="leaf">
+      <depends_on />
+    </node>
+    <node name="src/flask/wrappers.py" type="leaf">
+      <depends_on />
+    </node>
+  </dependency_graph>
+  <modules>
+    <module path="docs/conf.py">
+      <classes />
+      <functions>
+        <function>github_link</function>
+        <function>setup</function>
+      </functions>
+      <imports>
+        <import>import packaging.version</import>
+        <import>from pallets_sphinx_themes import get_version</import>
+        <import>from pallets_sphinx_themes import ProjectLink</import>
+        <import>from docutils.nodes import reference</import>
+        <import>from docutils.parsers.rst.roles import set_classes</import>
+      </imports>
+      <summary>Module conf with 2 functions, 0 classes. Depends on: packaging.version.</summary>
+    </module>
+    <module path="examples/celery/make_celery.py">
+      <classes />
+      <functions />
+      <imports>
+        <import>from task_app import create_app</import>
+      </imports>
+      <summary>Module make_celery with 0 functions, 0 classes.</summary>
+    </module>
+    <module path="examples/celery/src/task_app/__init__.py">
+      <classes>
+        <class>FlaskTask</class>
+      </classes>
+      <functions>
+        <function>create_app</function>
+        <function>index</function>
+        <function>celery_init_app</function>
+        <function>__call__</function>
+      </functions>
+      <imports>
+        <import>from celery import Celery</import>
+        <import>from celery import Task</import>
+        <import>from flask import Flask</import>
+        <import>from flask import render_template</import>
+        <import>from . import views</import>
+      </imports>
+      <summary>Module __init__ with 4 functions, 1 classes.</summary>
+    </module>
+    <module path="examples/celery/src/task_app/tasks.py">
+      <classes />
+      <functions>
+        <function>add</function>
+        <function>block</function>
+        <function>process</function>
+      </functions>
+      <imports>
+        <import>import time</import>
+        <import>from celery import shared_task</import>
+        <import>from celery import Task</import>
+      </imports>
+      <summary>Module tasks with 3 functions, 0 classes. Depends on: time.</summary>
+    </module>
+    <module path="examples/celery/src/task_app/views.py">
+      <classes />
+      <functions>
+        <function>result</function>
+        <function>add</function>
+        <function>block</function>
+        <function>process</function>
+      </functions>
+      <imports>
+        <import>from celery.result import AsyncResult</import>
+        <import>from flask import Blueprint</import>
+        <import>from flask import request</import>
+        <import>from . import tasks</import>
+      </imports>
+      <summary>Module views with 4 functions, 0 classes.</summary>
+    </module>
+    <module path="examples/javascript/js_example/__init__.py">
+      <classes />
+      <functions />
+      <imports>
+        <import>from flask import Flask</import>
+        <import>from js_example import views</import>
+      </imports>
+      <summary>Module __init__ with 0 functions, 0 classes.</summary>
+    </module>
+    <module path="examples/javascript/js_example/views.py">
+      <classes />
+      <functions>
+        <function>index</function>
+        <function>add</function>
+      </functions>
+      <imports>
+        <import>from flask import jsonify</import>
+        <import>from flask import render_template</import>
+        <import>from flask import request</import>
+        <import>from . import app</import>
+      </imports>
+      <summary>Module views with 2 functions, 0 classes.</summary>
+    </module>
+    <module path="examples/tutorial/flaskr/__init__.py">
+      <classes />
+      <functions>
+        <function>create_app</function>
+        <function>hello</function>
+      </functions>
+      <imports>
+        <import>import os</import>
+        <import>from flask import Flask</import>
+        <import>from . import db</import>
+        <import>from . import auth</import>
+        <import>from . import blog</import>
+      </imports>
+      <summary>Module __init__ with 2 functions, 0 classes. Depends on: os.</summary>
+    </module>
+    <module path="examples/tutorial/flaskr/auth.py">
+      <classes />
+      <functions>
+        <function>login_required</function>
+        <function>wrapped_view</function>
+        <function>load_logged_in_user</function>
+        <function>register</function>
+        <function>login</function>
+        <function>logout</function>
+      </functions>
+      <imports>
+        <import>import functools</import>
+        <import>from flask import Blueprint</import>
+        <import>from flask import flash</import>
+        <import>from flask import g</import>
+        <import>from flask import redirect</import>
+        <import>from flask import render_template</import>
+        <import>from flask import request</import>
+        <import>from flask import session</import>
+        <import>from flask import url_for</import>
+        <import>from werkzeug.security import check_password_hash</import>
+        <import>from werkzeug.security import generate_password_hash</import>
+        <import>from .db import get_db</import>
+      </imports>
+      <summary>Module auth with 6 functions, 0 classes. Depends on: functools.</summary>
+    </module>
+    <module path="examples/tutorial/flaskr/blog.py">
+      <classes />
+      <functions>
+        <function>index</function>
+        <function>get_post</function>
+        <function>create</function>
+        <function>update</function>
+        <function>delete</function>
+      </functions>
+      <imports>
+        <import>from flask import Blueprint</import>
+        <import>from flask import flash</import>
+        <import>from flask import g</import>
+        <import>from flask import redirect</import>
+        <import>from flask import render_template</import>
+        <import>from flask import request</import>
+        <import>from flask import url_for</import>
+        <import>from werkzeug.exceptions import abort</import>
+        <import>from .auth import login_required</import>
+        <import>from .db import get_db</import>
+      </imports>
+      <summary>Module blog with 5 functions, 0 classes.</summary>
+    </module>
+    <module path="examples/tutorial/flaskr/db.py">
+      <classes />
+      <functions>
+        <function>get_db</function>
+        <function>close_db</function>
+        <function>init_db</function>
+        <function>init_db_command</function>
+        <function>init_app</function>
+      </functions>
+      <imports>
+        <import>import sqlite3</import>
+        <import>from datetime import datetime</import>
+        <import>import click</import>
+        <import>from flask import current_app</import>
+        <import>from flask import g</import>
+      </imports>
+      <summary>Module db with 5 functions, 0 classes. Depends on: sqlite3, click.</summary>
+    </module>
+    <module path="src/flask/__init__.py">
+      <classes />
+      <functions />
+      <imports>
+        <import>from . import json as json</import>
+        <import>from .app import Flask as Flask</import>
+        <import>from .blueprints import Blueprint as Blueprint</import>
+        <import>from .config import Config as Config</import>
+        <import>from .ctx import after_this_request as after_this_request</import>
+        <import>from .ctx import copy_current_request_context as copy_current_request_context</import>
+        <import>from .ctx import has_app_context as has_app_context</import>
+        <import>from .ctx import has_request_context as has_request_context</import>
+        <import>from .globals import current_app as current_app</import>
+        <import>from .globals import g as g</import>
+        <import>from .globals import request as request</import>
+        <import>from .globals import session as session</import>
+        <import>from .helpers import abort as abort</import>
+        <import>from .helpers import flash as flash</import>
+        <import>from .helpers import get_flashed_messages as get_flashed_messages</import>
+        <import>from .helpers import get_template_attribute as get_template_attribute</import>
+        <import>from .helpers import make_response as make_response</import>
+        <import>from .helpers import redirect as redirect</import>
+        <import>from .helpers import send_file as send_file</import>
+        <import>from .helpers import send_from_directory as send_from_directory</import>
+        <import>from .helpers import stream_with_context as stream_with_context</import>
+        <import>from .helpers import url_for as url_for</import>
+        <import>from .json import jsonify as jsonify</import>
+        <import>from .signals import appcontext_popped as appcontext_popped</import>
+        <import>from .signals import appcontext_pushed as appcontext_pushed</import>
+        <import>from .signals import appcontext_tearing_down as appcontext_tearing_down</import>
+        <import>from .signals import before_render_template as before_render_template</import>
+        <import>from .signals import got_request_exception as got_request_exception</import>
+        <import>from .signals import message_flashed as message_flashed</import>
+        <import>from .signals import request_finished as request_finished</import>
+        <import>from .signals import request_started as request_started</import>
+        <import>from .signals import request_tearing_down as request_tearing_down</import>
+        <import>from .signals import template_rendered as template_rendered</import>
+        <import>from .templating import render_template as render_template</import>
+        <import>from .templating import render_template_string as render_template_string</import>
+        <import>from .templating import stream_template as stream_template</import>
+        <import>from .templating import stream_template_string as stream_template_string</import>
+        <import>from .wrappers import Request as Request</import>
+        <import>from .wrappers import Response as Response</import>
+      </imports>
+      <summary>Module __init__ with 0 functions, 0 classes.</summary>
+    </module>
+    <module path="src/flask/__main__.py">
+      <classes />
+      <functions />
+      <imports>
+        <import>from .cli import main</import>
+      </imports>
+      <summary>Module __main__ with 0 functions, 0 classes.</summary>
+    </module>
+    <module path="src/flask/app.py">
+      <classes>
+        <class>Flask</class>
+      </classes>
+      <functions>
+        <function>_make_timedelta</function>
+        <function>remove_ctx</function>
+        <function>wrapper</function>
+        <function>add_ctx</function>
+        <function>wrapper</function>
+        <function>__init_subclass__</function>
+        <function>__init__</function>
+        <function>get_send_file_max_age</function>
+        <function>send_static_file</function>
+        <function>open_resource</function>
+        <function>open_instance_resource</function>
+        <function>create_jinja_environment</function>
+        <function>create_url_adapter</function>
+        <function>raise_routing_exception</function>
+        <function>update_template_context</function>
+        <function>make_shell_context</function>
+        <function>run</function>
+        <function>test_client</function>
+        <function>test_cli_runner</function>
+        <function>handle_http_exception</function>
+        <function>handle_user_exception</function>
+        <function>handle_exception</function>
+        <function>log_exception</function>
+        <function>dispatch_request</function>
+        <function>full_dispatch_request</function>
+        <function>finalize_request</function>
+        <function>make_default_options_response</function>
+        <function>ensure_sync</function>
+        <function>async_to_sync</function>
+        <function>url_for</function>
+        <function>make_response</function>
+        <function>preprocess_request</function>
+        <function>process_response</function>
+        <function>do_teardown_request</function>
+        <function>do_teardown_appcontext</function>
+        <function>app_context</function>
+        <function>request_context</function>
+        <function>test_request_context</function>
+        <function>wsgi_app</function>
+        <function>__call__</function>
+      </functions>
+      <imports>
+        <import>import collections.abc as cabc</import>
+        <import>import inspect</import>
+        <import>import os</import>
+        <import>import sys</import>
+        <import>import typing as t</import>
+        <import>import weakref</import>
+        <import>from datetime import timedelta</import>
+        <import>from functools import update_wrapper</import>
+        <import>from inspect import iscoroutinefunction</import>
+        <import>from itertools import chain</import>
+        <import>from types import TracebackType</import>
+        <import>from urllib.parse import quote as _url_quote</import>
+        <import>import click</import>
+        <import>from werkzeug.datastructures import Headers</import>
+        <import>from werkzeug.datastructures import ImmutableDict</import>
+        <import>from werkzeug.exceptions import BadRequestKeyError</import>
+        <import>from werkzeug.exceptions import HTTPException</import>
+        <import>from werkzeug.exceptions import InternalServerError</import>
+        <import>from werkzeug.routing import BuildError</import>
+        <import>from werkzeug.routing import MapAdapter</import>
+        <import>from werkzeug.routing import RequestRedirect</import>
+        <import>from werkzeug.routing import RoutingException</import>
+        <import>from werkzeug.routing import Rule</import>
+        <import>from werkzeug.serving import is_running_from_reloader</import>
+        <import>from werkzeug.wrappers import Response as BaseResponse</import>
+        <import>from werkzeug.wsgi import get_host</import>
+        <import>from . import cli</import>
+        <import>from . import typing as ft</import>
+        <import>from .ctx import AppContext</import>
+        <import>from .globals import _cv_app</import>
+        <import>from .globals import app_ctx</import>
+        <import>from .globals import g</import>
+        <import>from .globals import request</import>
+        <import>from .globals import session</import>
+        <import>from .helpers import _CollectErrors</import>
+        <import>from .helpers import get_debug_flag</import>
+        <import>from .helpers import get_flashed_messages</import>
+        <import>from .helpers import get_load_dotenv</import>
+        <import>from .helpers import send_from_directory</import>
+        <import>from .sansio.app import App</import>
+        <import>from .sessions import SecureCookieSessionInterface</import>
+        <import>from .sessions import SessionInterface</import>
+        <import>from .signals import appcontext_tearing_down</import>
+        <import>from .signals import got_request_exception</import>
+        <import>from .signals import request_finished</import>
+        <import>from .signals import request_started</import>
+        <import>from .signals import request_tearing_down</import>
+        <import>from .templating import Environment</import>
+        <import>from .wrappers import Request</import>
+        <import>from .wrappers import Response</import>
+        <import>from _typeshed.wsgi import StartResponse</import>
+        <import>from _typeshed.wsgi import WSGIEnvironment</import>
+        <import>from .testing import FlaskClient</import>
+        <import>from .testing import FlaskCliRunner</import>
+        <import>from .typing import HeadersValue</import>
+        <import>import warnings</import>
+        <import>from .debughelpers import FormDataRoutingRedirect</import>
+        <import>from werkzeug.serving import run_simple</import>
+        <import>from .testing import FlaskClient as cls</import>
+        <import>from .testing import FlaskCliRunner as cls</import>
+        <import>import warnings</import>
+        <import>from asgiref.sync import async_to_sync as asgiref_async_to_sync</import>
+        <import>from .testing import EnvironBuilder</import>
+      </imports>
+      <summary>Module app with 40 functions, 1 classes. Depends on: collections.abc, inspect, os.</summary>
+    </module>
+    <module path="src/flask/blueprints.py">
+      <classes>
+        <class>Blueprint</class>
+      </classes>
+      <functions>
+        <function>__init__</function>
+        <function>get_send_file_max_age</function>
+        <function>send_static_file</function>
+        <function>open_resource</function>
+      </functions>
+      <imports>
+        <import>import os</import>
+        <import>import typing as t</import>
+        <import>from datetime import timedelta</import>
+        <import>from .cli import AppGroup</import>
+        <import>from .globals import current_app</import>
+        <import>from .helpers import send_from_directory</import>
+        <import>from .sansio.blueprints import Blueprint as SansioBlueprint</import>
+        <import>from .sansio.blueprints import BlueprintSetupState as BlueprintSetupState</import>
+        <import>from .sansio.scaffold import _sentinel</import>
+        <import>from .wrappers import Response</import>
+      </imports>
+      <summary>Module blueprints with 4 functions, 1 classes. Depends on: os, typing.</summary>
+    </module>
+    <module path="src/flask/cli.py">
+      <classes>
+        <class>NoAppException</class>
+        <class>ScriptInfo</class>
+        <class>AppGroup</class>
+        <class>FlaskGroup</class>
+        <class>CertParamType</class>
+        <class>SeparatedPathType</class>
+      </classes>
+      <functions>
+        <function>find_best_app</function>
+        <function>_called_with_wrong_args</function>
+        <function>find_app_by_string</function>
+        <function>prepare_import</function>
+        <function>locate_app</function>
+        <function>locate_app</function>
+        <function>locate_app</function>
+        <function>get_version</function>
+        <function>__init__</function>
+        <function>load_app</function>
+        <function>with_appcontext</function>
+        <function>decorator</function>
+        <function>command</function>
+        <function>decorator</function>
+        <function>group</function>
+        <function>_set_app</function>
+        <function>_set_debug</function>
+        <function>_env_file_callback</function>
+        <function>__init__</function>
+        <function>_load_plugin_commands</function>
+        <function>get_command</function>
+        <function>list_commands</function>
+        <function>make_context</function>
+        <function>parse_args</function>
+        <function>_path_is_ancestor</function>
+        <function>load_dotenv</function>
+        <function>show_server_banner</function>
+        <function>__init__</function>
+        <function>convert</function>
+        <function>_validate_key</function>
+        <function>convert</function>
+        <function>run_command</function>
+        <function>app</function>
+        <function>shell_command</function>
+        <function>routes_command</function>
+        <function>main</function>
+      </functions>
+      <imports>
+        <import>import ast</import>
+        <import>import collections.abc as cabc</import>
+        <import>import importlib.metadata</import>
+        <import>import inspect</import>
+        <import>import os</import>
+        <import>import platform</import>
+        <import>import re</import>
+        <import>import sys</import>
+        <import>import traceback</import>
+        <import>import typing as t</import>
+        <import>from functools import update_wrapper</import>
+        <import>from operator import itemgetter</import>
+        <import>from types import ModuleType</import>
+        <import>import click</import>
+        <import>from click.core import ParameterSource</import>
+        <import>from werkzeug import run_simple</import>
+        <import>from werkzeug.serving import is_running_from_reloader</import>
+        <import>from werkzeug.utils import import_string</import>
+        <import>from .globals import current_app</import>
+        <import>from .helpers import get_debug_flag</import>
+        <import>from .helpers import get_load_dotenv</import>
+        <import>import ssl</import>
+        <import>from _typeshed.wsgi import StartResponse</import>
+        <import>from _typeshed.wsgi import WSGIApplication</import>
+        <import>from _typeshed.wsgi import WSGIEnvironment</import>
+        <import>from .app import Flask</import>
+        <import>from . import Flask</import>
+        <import>from . import Flask</import>
+        <import>import dotenv</import>
+        <import>import dotenv</import>
+        <import>import ssl</import>
+        <import>import cryptography</import>
+        <import>import ssl</import>
+        <import>import code</import>
+        <import>import readline</import>
+        <import>from rlcompleter import Completer</import>
+      </imports>
+      <summary>Module cli with 36 functions, 6 classes. Depends on: ast, collections.abc, importlib.metadata.</summary>
+    </module>
+    <module path="src/flask/config.py">
+      <classes>
+        <class>ConfigAttribute</class>
+        <class>Config</class>
+      </classes>
+      <functions>
+        <function>__init__</function>
+        <function>__get__</function>
+        <function>__get__</function>
+        <function>__get__</function>
+        <function>__set__</function>
+        <function>__init__</function>
+        <function>from_envvar</function>
+        <function>from_prefixed_env</function>
+        <function>from_pyfile</function>
+        <function>from_object</function>
+        <function>from_file</function>
+        <function>from_mapping</function>
+        <function>get_namespace</function>
+        <function>__repr__</function>
+      </functions>
+      <imports>
+        <import>import errno</import>
+        <import>import json</import>
+        <import>import os</import>
+        <import>import types</import>
+        <import>import typing as t</import>
+        <import>from werkzeug.utils import import_string</import>
+        <import>import typing_extensions as te</import>
+        <import>from .sansio.app import App</import>
+      </imports>
+      <summary>Configuration module that defines DATABASE_URL, DEBUG, SECRET_KEY, and LOG_LEVEL constants. Depends on: errno, json, os.</summary>
+    </module>
+    <module path="src/flask/ctx.py">
+      <classes>
+        <class>_AppCtxGlobals</class>
+        <class>AppContext</class>
+      </classes>
+      <functions>
+        <function>__getattr__</function>
+        <function>__setattr__</function>
+        <function>__delattr__</function>
+        <function>get</function>
+        <function>pop</function>
+        <function>setdefault</function>
+        <function>__contains__</function>
+        <function>__iter__</function>
+        <function>__repr__</function>
+        <function>after_this_request</function>
+        <function>copy_current_request_context</function>
+        <function>wrapper</function>
+        <function>has_request_context</function>
+        <function>has_app_context</function>
+        <function>__init__</function>
+        <function>from_environ</function>
+        <function>has_request</function>
+        <function>copy</function>
+        <function>request</function>
+        <function>_get_session</function>
+        <function>session</function>
+        <function>match_request</function>
+        <function>push</function>
+        <function>pop</function>
+        <function>__enter__</function>
+        <function>__exit__</function>
+        <function>__repr__</function>
+        <function>__getattr__</function>
+      </functions>
+      <imports>
+        <import>import contextvars</import>
+        <import>import typing as t</import>
+        <import>from functools import update_wrapper</import>
+        <import>from types import TracebackType</import>
+        <import>from werkzeug.exceptions import HTTPException</import>
+        <import>from werkzeug.routing import MapAdapter</import>
+        <import>from . import typing as ft</import>
+        <import>from .globals import _cv_app</import>
+        <import>from .helpers import _CollectErrors</import>
+        <import>from .signals import appcontext_popped</import>
+        <import>from .signals import appcontext_pushed</import>
+        <import>import typing_extensions as te</import>
+        <import>from _typeshed.wsgi import WSGIEnvironment</import>
+        <import>from .app import Flask</import>
+        <import>from .sessions import SessionMixin</import>
+        <import>from .wrappers import Request</import>
+        <import>import warnings</import>
+      </imports>
+      <summary>Module ctx with 28 functions, 2 classes. Depends on: contextvars, typing.</summary>
+    </module>
+    <module path="src/flask/debughelpers.py">
+      <classes>
+        <class>UnexpectedUnicodeError</class>
+        <class>DebugFilesKeyError</class>
+        <class>FormDataRoutingRedirect</class>
+        <class>newcls</class>
+      </classes>
+      <functions>
+        <function>__init__</function>
+        <function>__str__</function>
+        <function>__init__</function>
+        <function>attach_enctype_error_multidict</function>
+        <function>__getitem__</function>
+        <function>_dump_loader_info</function>
+        <function>explain_template_loading_attempts</function>
+      </functions>
+      <imports>
+        <import>import typing as t</import>
+        <import>from jinja2.loaders import BaseLoader</import>
+        <import>from werkzeug.routing import RequestRedirect</import>
+        <import>from .blueprints import Blueprint</import>
+        <import>from .globals import _cv_app</import>
+        <import>from .sansio.app import App</import>
+        <import>from .sansio.scaffold import Scaffold</import>
+        <import>from .wrappers import Request</import>
+      </imports>
+      <summary>Module debughelpers with 7 functions, 4 classes. Depends on: typing.</summary>
+    </module>
+    <module path="src/flask/globals.py">
+      <classes>
+        <class>ProxyMixin</class>
+        <class>FlaskProxy</class>
+        <class>AppContextProxy</class>
+        <class>_AppCtxGlobalsProxy</class>
+        <class>RequestProxy</class>
+        <class>SessionMixinProxy</class>
+      </classes>
+      <functions>
+        <function>_get_current_object</function>
+        <function>__getattr__</function>
+      </functions>
+      <imports>
+        <import>import typing as t</import>
+        <import>from contextvars import ContextVar</import>
+        <import>from werkzeug.local import LocalProxy</import>
+        <import>from .app import Flask</import>
+        <import>from .ctx import _AppCtxGlobals</import>
+        <import>from .ctx import AppContext</import>
+        <import>from .sessions import SessionMixin</import>
+        <import>from .wrappers import Request</import>
+        <import>import warnings</import>
+      </imports>
+      <summary>Module globals with 2 functions, 6 classes. Depends on: typing.</summary>
+    </module>
+    <module path="src/flask/helpers.py">
+      <classes>
+        <class>_CollectErrors</class>
+      </classes>
+      <functions>
+        <function>get_debug_flag</function>
+        <function>get_load_dotenv</function>
+        <function>stream_with_context</function>
+        <function>stream_with_context</function>
+        <function>stream_with_context</function>
+        <function>decorator</function>
+        <function>generator</function>
+        <function>make_response</function>
+        <function>url_for</function>
+        <function>redirect</function>
+        <function>abort</function>
+        <function>get_template_attribute</function>
+        <function>flash</function>
+        <function>get_flashed_messages</function>
+        <function>_prepare_send_file_kwargs</function>
+        <function>send_file</function>
+        <function>send_from_directory</function>
+        <function>get_root_path</function>
+        <function>_split_blueprint_path</function>
+        <function>__init__</function>
+        <function>__enter__</function>
+        <function>__exit__</function>
+        <function>raise_any</function>
+      </functions>
+      <imports>
+        <import>import importlib.util</import>
+        <import>import os</import>
+        <import>import sys</import>
+        <import>import typing as t</import>
+        <import>from datetime import datetime</import>
+        <import>from functools import cache</import>
+        <import>from functools import update_wrapper</import>
+        <import>from types import TracebackType</import>
+        <import>import werkzeug.utils</import>
+        <import>from werkzeug.exceptions import abort as _wz_abort</import>
+        <import>from werkzeug.utils import redirect as _wz_redirect</import>
+        <import>from werkzeug.wrappers import Response as BaseResponse</import>
+        <import>from .globals import _cv_app</import>
+        <import>from .globals import app_ctx</import>
+        <import>from .globals import current_app</import>
+        <import>from .globals import request</import>
+        <import>from .globals import session</import>
+        <import>from .signals import message_flashed</import>
+        <import>from .wrappers import Response</import>
+      </imports>
+      <summary>Module helpers with 23 functions, 1 classes. Depends on: importlib.util, os, sys.</summary>
+    </module>
+    <module path="src/flask/json/__init__.py">
+      <classes />
+      <functions>
+        <function>dumps</function>
+        <function>dump</function>
+        <function>loads</function>
+        <function>load</function>
+        <function>jsonify</function>
+      </functions>
+      <imports>
+        <import>import json as _json</import>
+        <import>import typing as t</import>
+        <import>from ..globals import current_app</import>
+        <import>from .provider import _default</import>
+        <import>from ..wrappers import Response</import>
+      </imports>
+      <summary>Module __init__ with 5 functions, 0 classes. Depends on: json, typing.</summary>
+    </module>
+    <module path="src/flask/json/provider.py">
+      <classes>
+        <class>JSONProvider</class>
+        <class>DefaultJSONProvider</class>
+      </classes>
+      <functions>
+        <function>__init__</function>
+        <function>dumps</function>
+        <function>dump</function>
+        <function>loads</function>
+        <function>load</function>
+        <function>_prepare_response_obj</function>
+        <function>response</function>
+        <function>_default</function>
+        <function>dumps</function>
+        <function>loads</function>
+        <function>response</function>
+      </functions>
+      <imports>
+        <import>import dataclasses</import>
+        <import>import decimal</import>
+        <import>import json</import>
+        <import>import typing as t</import>
+        <import>import uuid</import>
+        <import>import weakref</import>
+        <import>from datetime import date</import>
+        <import>from werkzeug.http import http_date</import>
+        <import>from werkzeug.sansio.response import Response</import>
+        <import>from ..sansio.app import App</import>
+      </imports>
+      <summary>Module provider with 11 functions, 2 classes. Depends on: dataclasses, decimal, json.</summary>
+    </module>
+    <module path="src/flask/json/tag.py">
+      <classes>
+        <class>JSONTag</class>
+        <class>TagDict</class>
+        <class>PassDict</class>
+        <class>TagTuple</class>
+        <class>PassList</class>
+        <class>TagBytes</class>
+        <class>TagMarkup</class>
+        <class>TagUUID</class>
+        <class>TagDateTime</class>
+        <class>TaggedJSONSerializer</class>
+      </classes>
+      <functions>
+        <function>__init__</function>
+        <function>check</function>
+        <function>to_json</function>
+        <function>to_python</function>
+        <function>tag</function>
+        <function>check</function>
+        <function>to_json</function>
+        <function>to_python</function>
+        <function>check</function>
+        <function>to_json</function>
+        <function>check</function>
+        <function>to_json</function>
+        <function>to_python</function>
+        <function>check</function>
+        <function>to_json</function>
+        <function>check</function>
+        <function>to_json</function>
+        <function>to_python</function>
+        <function>check</function>
+        <function>to_json</function>
+        <function>to_python</function>
+        <function>check</function>
+        <function>to_json</function>
+        <function>to_python</function>
+        <function>check</function>
+        <function>to_json</function>
+        <function>to_python</function>
+        <function>__init__</function>
+        <function>register</function>
+        <function>tag</function>
+        <function>untag</function>
+        <function>_untag_scan</function>
+        <function>dumps</function>
+        <function>loads</function>
+      </functions>
+      <imports>
+        <import>import typing as t</import>
+        <import>from base64 import b64decode</import>
+        <import>from base64 import b64encode</import>
+        <import>from datetime import datetime</import>
+        <import>from uuid import UUID</import>
+        <import>from markupsafe import Markup</import>
+        <import>from werkzeug.http import http_date</import>
+        <import>from werkzeug.http import parse_date</import>
+        <import>from ..json import dumps</import>
+        <import>from ..json import loads</import>
+      </imports>
+      <summary>Module tag with 34 functions, 10 classes. Depends on: typing.</summary>
+    </module>
+    <module path="src/flask/logging.py">
+      <classes />
+      <functions>
+        <function>wsgi_errors_stream</function>
+        <function>has_level_handler</function>
+        <function>create_logger</function>
+      </functions>
+      <imports>
+        <import>import logging</import>
+        <import>import sys</import>
+        <import>import typing as t</import>
+        <import>from werkzeug.local import LocalProxy</import>
+        <import>from .globals import request</import>
+        <import>from .sansio.app import App</import>
+      </imports>
+      <summary>Module logging with 3 functions, 0 classes. Depends on: logging, sys, typing.</summary>
+    </module>
+    <module path="src/flask/sansio/app.py">
+      <classes>
+        <class>App</class>
+      </classes>
+      <functions>
+        <function>_make_timedelta</function>
+        <function>__init__</function>
+        <function>_check_setup_finished</function>
+        <function>name</function>
+        <function>logger</function>
+        <function>jinja_env</function>
+        <function>create_jinja_environment</function>
+        <function>make_config</function>
+        <function>make_aborter</function>
+        <function>auto_find_instance_path</function>
+        <function>create_global_jinja_loader</function>
+        <function>select_jinja_autoescape</function>
+        <function>debug</function>
+        <function>debug</function>
+        <function>register_blueprint</function>
+        <function>iter_blueprints</function>
+        <function>add_url_rule</function>
+        <function>template_filter</function>
+        <function>template_filter</function>
+        <function>template_filter</function>
+        <function>decorator</function>
+        <function>add_template_filter</function>
+        <function>template_test</function>
+        <function>template_test</function>
+        <function>template_test</function>
+        <function>decorator</function>
+        <function>add_template_test</function>
+        <function>template_global</function>
+        <function>template_global</function>
+        <function>template_global</function>
+        <function>decorator</function>
+        <function>add_template_global</function>
+        <function>teardown_appcontext</function>
+        <function>shell_context_processor</function>
+        <function>_find_error_handler</function>
+        <function>trap_http_exception</function>
+        <function>redirect</function>
+        <function>inject_url_defaults</function>
+        <function>handle_url_build_error</function>
+      </functions>
+      <imports>
+        <import>import logging</import>
+        <import>import os</import>
+        <import>import sys</import>
+        <import>import typing as t</import>
+        <import>from datetime import timedelta</import>
+        <import>from itertools import chain</import>
+        <import>from werkzeug.exceptions import Aborter</import>
+        <import>from werkzeug.exceptions import BadRequest</import>
+        <import>from werkzeug.exceptions import BadRequestKeyError</import>
+        <import>from werkzeug.routing import BuildError</import>
+        <import>from werkzeug.routing import Map</import>
+        <import>from werkzeug.routing import Rule</import>
+        <import>from werkzeug.sansio.response import Response</import>
+        <import>from werkzeug.utils import cached_property</import>
+        <import>from werkzeug.utils import redirect as _wz_redirect</import>
+        <import>from .. import typing as ft</import>
+        <import>from ..config import Config</import>
+        <import>from ..config import ConfigAttribute</import>
+        <import>from ..ctx import _AppCtxGlobals</import>
+        <import>from ..helpers import _split_blueprint_path</import>
+        <import>from ..helpers import get_debug_flag</import>
+        <import>from ..json.provider import DefaultJSONProvider</import>
+        <import>from ..json.provider import JSONProvider</import>
+        <import>from ..logging import create_logger</import>
+        <import>from ..templating import DispatchingJinjaLoader</import>
+        <import>from ..templating import Environment</import>
+        <import>from .scaffold import _endpoint_from_view_func</import>
+        <import>from .scaffold import find_package</import>
+        <import>from .scaffold import Scaffold</import>
+        <import>from .scaffold import setupmethod</import>
+        <import>from werkzeug.wrappers import Response as BaseResponse</import>
+        <import>from ..testing import FlaskClient</import>
+        <import>from ..testing import FlaskCliRunner</import>
+        <import>from .blueprints import Blueprint</import>
+      </imports>
+      <summary>Module app with 39 functions, 1 classes. Depends on: logging, os, sys.</summary>
+    </module>
+    <module path="src/flask/sansio/blueprints.py">
+      <classes>
+        <class>BlueprintSetupState</class>
+        <class>Blueprint</class>
+      </classes>
+      <functions>
+        <function>__init__</function>
+        <function>add_url_rule</function>
+        <function>__init__</function>
+        <function>_check_setup_finished</function>
+        <function>record</function>
+        <function>record_once</function>
+        <function>wrapper</function>
+        <function>make_setup_state</function>
+        <function>register_blueprint</function>
+        <function>register</function>
+        <function>_merge_blueprint_funcs</function>
+        <function>extend</function>
+        <function>add_url_rule</function>
+        <function>app_template_filter</function>
+        <function>app_template_filter</function>
+        <function>app_template_filter</function>
+        <function>decorator</function>
+        <function>add_app_template_filter</function>
+        <function>register_template_filter</function>
+        <function>app_template_test</function>
+        <function>app_template_test</function>
+        <function>app_template_test</function>
+        <function>decorator</function>
+        <function>add_app_template_test</function>
+        <function>register_template_test</function>
+        <function>app_template_global</function>
+        <function>app_template_global</function>
+        <function>app_template_global</function>
+        <function>decorator</function>
+        <function>add_app_template_global</function>
+        <function>register_template_global</function>
+        <function>before_app_request</function>
+        <function>after_app_request</function>
+        <function>teardown_app_request</function>
+        <function>app_context_processor</function>
+        <function>app_errorhandler</function>
+        <function>decorator</function>
+        <function>from_blueprint</function>
+        <function>app_url_value_preprocessor</function>
+        <function>app_url_defaults</function>
+      </functions>
+      <imports>
+        <import>import os</import>
+        <import>import typing as t</import>
+        <import>from collections import defaultdict</import>
+        <import>from functools import update_wrapper</import>
+        <import>from .. import typing as ft</import>
+        <import>from .scaffold import _endpoint_from_view_func</import>
+        <import>from .scaffold import _sentinel</import>
+        <import>from .scaffold import Scaffold</import>
+        <import>from .scaffold import setupmethod</import>
+        <import>from .app import App</import>
+      </imports>
+      <summary>Module blueprints with 40 functions, 2 classes. Depends on: os, typing.</summary>
+    </module>
+    <module path="src/flask/sansio/scaffold.py">
+      <classes>
+        <class>Scaffold</class>
+      </classes>
+      <functions>
+        <function>setupmethod</function>
+        <function>wrapper_func</function>
+        <function>__init__</function>
+        <function>__repr__</function>
+        <function>_check_setup_finished</function>
+        <function>static_folder</function>
+        <function>static_folder</function>
+        <function>has_static_folder</function>
+        <function>static_url_path</function>
+        <function>static_url_path</function>
+        <function>jinja_loader</function>
+        <function>_method_route</function>
+        <function>get</function>
+        <function>post</function>
+        <function>put</function>
+        <function>delete</function>
+        <function>patch</function>
+        <function>route</function>
+        <function>decorator</function>
+        <function>add_url_rule</function>
+        <function>endpoint</function>
+        <function>decorator</function>
+        <function>before_request</function>
+        <function>after_request</function>
+        <function>teardown_request</function>
+        <function>context_processor</function>
+        <function>url_value_preprocessor</function>
+        <function>url_defaults</function>
+        <function>errorhandler</function>
+        <function>decorator</function>
+        <function>register_error_handler</function>
+        <function>_get_exc_class_and_code</function>
+        <function>_endpoint_from_view_func</function>
+        <function>_find_package_path</function>
+        <function>find_package</function>
+      </functions>
+      <imports>
+        <import>import importlib.util</import>
+        <import>import os</import>
+        <import>import pathlib</import>
+        <import>import sys</import>
+        <import>import typing as t</import>
+        <import>from collections import defaultdict</import>
+        <import>from functools import update_wrapper</import>
+        <import>from jinja2 import BaseLoader</import>
+        <import>from jinja2 import FileSystemLoader</import>
+        <import>from werkzeug.exceptions import default_exceptions</import>
+        <import>from werkzeug.exceptions import HTTPException</import>
+        <import>from werkzeug.utils import cached_property</import>
+        <import>from .. import typing as ft</import>
+        <import>from ..helpers import get_root_path</import>
+        <import>from ..templating import _default_template_ctx_processor</import>
+        <import>from click import Group</import>
+      </imports>
+      <summary>Module scaffold with 35 functions, 1 classes. Depends on: importlib.util, os, pathlib.</summary>
+    </module>
+    <module path="src/flask/sessions.py">
+      <classes>
+        <class>SessionMixin</class>
+        <class>SecureCookieSession</class>
+        <class>NullSession</class>
+        <class>SessionInterface</class>
+        <class>SecureCookieSessionInterface</class>
+      </classes>
+      <functions>
+        <function>permanent</function>
+        <function>permanent</function>
+        <function>__init__</function>
+        <function>on_update</function>
+        <function>_fail</function>
+        <function>make_null_session</function>
+        <function>is_null_session</function>
+        <function>get_cookie_name</function>
+        <function>get_cookie_domain</function>
+        <function>get_cookie_path</function>
+        <function>get_cookie_httponly</function>
+        <function>get_cookie_secure</function>
+        <function>get_cookie_samesite</function>
+        <function>get_cookie_partitioned</function>
+        <function>get_expiration_time</function>
+        <function>should_set_cookie</function>
+        <function>open_session</function>
+        <function>save_session</function>
+        <function>_lazy_sha1</function>
+        <function>get_signing_serializer</function>
+        <function>open_session</function>
+        <function>save_session</function>
+      </functions>
+      <imports>
+        <import>import collections.abc as c</import>
+        <import>import hashlib</import>
+        <import>import typing as t</import>
+        <import>from collections.abc import MutableMapping</import>
+        <import>from datetime import datetime</import>
+        <import>from datetime import timezone</import>
+        <import>from itsdangerous import BadSignature</import>
+        <import>from itsdangerous import URLSafeTimedSerializer</import>
+        <import>from werkzeug.datastructures import CallbackDict</import>
+        <import>from .json.tag import TaggedJSONSerializer</import>
+        <import>import typing_extensions as te</import>
+        <import>from .app import Flask</import>
+        <import>from .wrappers import Request</import>
+        <import>from .wrappers import Response</import>
+      </imports>
+      <summary>Module sessions with 22 functions, 5 classes. Depends on: collections.abc, hashlib, typing.</summary>
+    </module>
+    <module path="src/flask/signals.py">
+      <classes />
+      <functions />
+      <imports>
+        <import>from blinker import Namespace</import>
+      </imports>
+      <summary>Module signals with 0 functions, 0 classes.</summary>
+    </module>
+    <module path="src/flask/templating.py">
+      <classes>
+        <class>Environment</class>
+        <class>DispatchingJinjaLoader</class>
+      </classes>
+      <functions>
+        <function>_default_template_ctx_processor</function>
+        <function>__init__</function>
+        <function>__init__</function>
+        <function>get_source</function>
+        <function>_get_source_explained</function>
+        <function>_get_source_fast</function>
+        <function>_iter_loaders</function>
+        <function>list_templates</function>
+        <function>_render</function>
+        <function>render_template</function>
+        <function>render_template_string</function>
+        <function>_stream</function>
+        <function>generate</function>
+        <function>stream_template</function>
+        <function>stream_template_string</function>
+      </functions>
+      <imports>
+        <import>import typing as t</import>
+        <import>from jinja2 import BaseLoader</import>
+        <import>from jinja2 import Environment as BaseEnvironment</import>
+        <import>from jinja2 import Template</import>
+        <import>from jinja2 import TemplateNotFound</import>
+        <import>from .ctx import AppContext</import>
+        <import>from .globals import app_ctx</import>
+        <import>from .helpers import stream_with_context</import>
+        <import>from .signals import before_render_template</import>
+        <import>from .signals import template_rendered</import>
+        <import>from .sansio.app import App</import>
+        <import>from .sansio.scaffold import Scaffold</import>
+        <import>from .debughelpers import explain_template_loading_attempts</import>
+      </imports>
+      <summary>Module templating with 15 functions, 2 classes. Depends on: typing.</summary>
+    </module>
+    <module path="src/flask/testing.py">
+      <classes>
+        <class>EnvironBuilder</class>
+        <class>FlaskClient</class>
+        <class>FlaskCliRunner</class>
+      </classes>
+      <functions>
+        <function>__init__</function>
+        <function>json_dumps</function>
+        <function>_get_werkzeug_version</function>
+        <function>__init__</function>
+        <function>session_transaction</function>
+        <function>_copy_environ</function>
+        <function>_request_from_builder_args</function>
+        <function>open</function>
+        <function>__enter__</function>
+        <function>__exit__</function>
+        <function>__init__</function>
+        <function>invoke</function>
+      </functions>
+      <imports>
+        <import>import importlib.metadata</import>
+        <import>import typing as t</import>
+        <import>from contextlib import contextmanager</import>
+        <import>from contextlib import ExitStack</import>
+        <import>from copy import copy</import>
+        <import>from types import TracebackType</import>
+        <import>from urllib.parse import urlsplit</import>
+        <import>import werkzeug.test</import>
+        <import>from click.testing import CliRunner</import>
+        <import>from click.testing import Result</import>
+        <import>from werkzeug.test import Client</import>
+        <import>from werkzeug.wrappers import Request as BaseRequest</import>
+        <import>from .cli import ScriptInfo</import>
+        <import>from .sessions import SessionMixin</import>
+        <import>from _typeshed.wsgi import WSGIEnvironment</import>
+        <import>from werkzeug.test import TestResponse</import>
+        <import>from .app import Flask</import>
+      </imports>
+      <summary>Module testing with 12 functions, 3 classes. Depends on: importlib.metadata, typing.</summary>
+    </module>
+    <module path="src/flask/typing.py">
+      <classes />
+      <functions />
+      <imports>
+        <import>import collections.abc as cabc</import>
+        <import>import typing as t</import>
+        <import>from _typeshed.wsgi import WSGIApplication</import>
+        <import>from werkzeug.datastructures import Headers</import>
+        <import>from werkzeug.sansio.response import Response</import>
+      </imports>
+      <summary>Module typing with 0 functions, 0 classes. Depends on: collections.abc, typing.</summary>
+    </module>
+    <module path="src/flask/views.py">
+      <classes>
+        <class>View</class>
+        <class>MethodView</class>
+      </classes>
+      <functions>
+        <function>dispatch_request</function>
+        <function>as_view</function>
+        <function>view</function>
+        <function>view</function>
+        <function>__init_subclass__</function>
+        <function>dispatch_request</function>
+      </functions>
+      <imports>
+        <import>import typing as t</import>
+        <import>from . import typing as ft</import>
+        <import>from .globals import current_app</import>
+        <import>from .globals import request</import>
+      </imports>
+      <summary>Module views with 6 functions, 2 classes. Depends on: typing.</summary>
+    </module>
+    <module path="src/flask/wrappers.py">
+      <classes>
+        <class>Request</class>
+        <class>Response</class>
+      </classes>
+      <functions>
+        <function>max_content_length</function>
+        <function>max_content_length</function>
+        <function>max_form_memory_size</function>
+        <function>max_form_memory_size</function>
+        <function>max_form_parts</function>
+        <function>max_form_parts</function>
+        <function>endpoint</function>
+        <function>blueprint</function>
+        <function>blueprints</function>
+        <function>_load_form_data</function>
+        <function>on_json_loading_failed</function>
+        <function>max_cookie_size</function>
+      </functions>
+      <imports>
+        <import>import typing as t</import>
+        <import>from werkzeug.exceptions import BadRequest</import>
+        <import>from werkzeug.exceptions import HTTPException</import>
+        <import>from werkzeug.wrappers import Request as RequestBase</import>
+        <import>from werkzeug.wrappers import Response as ResponseBase</import>
+        <import>from . import json</import>
+        <import>from .globals import current_app</import>
+        <import>from .helpers import _split_blueprint_path</import>
+        <import>from werkzeug.routing import Rule</import>
+        <import>from .debughelpers import attach_enctype_error_multidict</import>
+      </imports>
+      <summary>Module wrappers with 12 functions, 2 classes. Depends on: typing.</summary>
+    </module>
+  </modules>
+</codecrunch>

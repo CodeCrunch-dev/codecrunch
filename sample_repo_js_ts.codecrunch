@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codecrunch version="0.1" repo="sample_repo_js_ts">
+  <metadata>
+    <files_count>6</files_count>
+    <generated_at>2026-03-11T22:05:12Z</generated_at>
+  </metadata>
+  <dependency_graph>
+    <node name="controller_a.ts">
+      <depends_on>
+        <dep>util.ts</dep>
+      </depends_on>
+    </node>
+    <node name="controller_b.ts">
+      <depends_on>
+        <dep>util.ts</dep>
+      </depends_on>
+    </node>
+    <node name="index.ts">
+      <depends_on>
+        <dep>util.ts</dep>
+      </depends_on>
+    </node>
+    <node name="lib.js" type="leaf">
+      <depends_on />
+    </node>
+    <node name="service.js">
+      <depends_on>
+        <dep>lib.js</dep>
+      </depends_on>
+    </node>
+    <node name="util.ts" type="leaf">
+      <depends_on />
+    </node>
+  </dependency_graph>
+  <patterns>
+    <cluster id="cluster_1" representative="controller_a.ts" threshold="0.85" fingerprint="904f102a5d3b21d35f082045bda9fc47d58233b3">
+      <members>
+        <member>controller_a.ts</member>
+        <member>controller_b.ts</member>
+      </members>
+    </cluster>
+  </patterns>
+  <modules>
+    <module path="controller_a.ts">
+      <classes />
+      <functions>
+        <function>handle</function>
+      </functions>
+      <imports>
+        <import>import { helper } from "./util";</import>
+      </imports>
+      <summary>Module controller_a with 1 functions, 0 classes. Depends on: util";.</summary>
+    </module>
+    <module path="controller_b.ts">
+      <classes />
+      <functions>
+        <function>handle</function>
+      </functions>
+      <imports>
+        <import>import { helper } from "./util";</import>
+      </imports>
+      <summary>Module controller_b with 1 functions, 0 classes. Depends on: util";.</summary>
+    </module>
+    <module path="index.ts">
+      <classes />
+      <functions>
+        <function>main</function>
+      </functions>
+      <imports>
+        <import>import { helper } from "./util";</import>
+        <import>import React from "react";</import>
+      </imports>
+      <summary>Module index with 1 functions, 0 classes. Depends on: util";, react";.</summary>
+    </module>
+    <module path="lib.js">
+      <classes />
+      <functions>
+        <function>format</function>
+      </functions>
+      <imports />
+      <summary>Module lib with 1 functions, 0 classes. Leaf dependency with no internal imports.</summary>
+    </module>
+    <module path="service.js">
+      <classes />
+      <functions>
+        <function>run</function>
+      </functions>
+      <imports>
+        <import>require:./lib</import>
+        <import>require:fs</import>
+      </imports>
+      <summary>Module service with 1 functions, 0 classes. Depends on: lib, fs.</summary>
+    </module>
+    <module path="util.ts">
+      <classes />
+      <functions>
+        <function>helper</function>
+      </functions>
+      <imports />
+      <summary>Module util with 1 functions, 0 classes. Leaf dependency with no internal imports.</summary>
+    </module>
+  </modules>
+</codecrunch>

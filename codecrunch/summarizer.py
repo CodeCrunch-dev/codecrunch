@@ -54,7 +54,7 @@ def summarize_module(
         raise NotImplementedError("Wire up Claude API in Phase 2")
 
     # Mock: generate realistic summary from filename and structure
-    basename = os.path.basename(filepath).replace(".py", "")
+    basename = os.path.splitext(os.path.basename(filepath))[0]
     classes = structure.get("classes", [])
     functions = structure.get("functions", [])
     imports = structure.get("imports", [])
@@ -86,8 +86,23 @@ def summarize_module(
     if not imports:
         parts.append("Leaf dependency with no internal imports.")
     else:
-        deps = [imp.split()[1] if "from" in imp else imp.split()[1] for imp in imports[:3]]
-        parts.append(f"Depends on: {', '.join(deps)}.")
+        deps = []
+        for imp in imports[:3]:
+            imp = str(imp).strip()
+            dep = None
+            if imp.startswith("require:"):
+                spec = imp.split(":", 1)[1]
+                dep = spec.split("/")[-1].replace(".js", "").replace(".ts", "")
+            elif " from " in imp:
+                idx = imp.find(" from ")
+                rest = imp[idx + 6 :].strip().strip("'\"").split("/")[-1]
+                dep = rest.replace(".js", "").replace(".ts", "")
+            elif imp.startswith("import ") and len(imp.split()) >= 2:
+                dep = imp.split()[1].strip("'\"").split("/")[-1].replace(".js", "").replace(".ts", "")
+            if dep:
+                deps.append(dep)
+        if deps:
+            parts.append(f"Depends on: {', '.join(deps)}.")
 
     return " ".join(parts)
 

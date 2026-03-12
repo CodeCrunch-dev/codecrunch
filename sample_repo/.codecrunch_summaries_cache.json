@@ -1,7 +1,12 @@
 {
+  "config.py|1773027779|phase2-0.1": "Configuration module that defines DATABASE_URL, DEBUG, SECRET_KEY, and LOG_LEVEL constants. Leaf dependency with no internal imports.",
   "config.py|1773200968|phase2-0.1": "Configuration module that defines DATABASE_URL, DEBUG, SECRET_KEY, and LOG_LEVEL constants. Leaf dependency with no internal imports.",
+  "database.py|1773027780|phase2-0.1": "Database connection and session management. Provides get_connection and close_connection. Depends on: config.",
   "database.py|1773200968|phase2-0.1": "Database connection and session management. Provides get_connection and close_connection. Depends on: config.",
+  "main.py|1773027782|phase2-0.1": "Application entry point. Orchestrates startup, loads User via models, formats output via utils. Depends on: utils, models.",
   "main.py|1773200968|phase2-0.1": "Application entry point. Orchestrates startup, loads User via models, formats output via utils. Depends on: utils, models.",
+  "models.py|1773027781|phase2-0.1": "Data models. Defines User and fetch_user for DB access. Depends on: database.",
   "models.py|1773200968|phase2-0.1": "Data models. Defines User and fetch_user for DB access. Depends on: database.",
+  "utils.py|1773027781|phase2-0.1": "Utility functions for logging and response formatting. Depends on: config.",
   "utils.py|1773200968|phase2-0.1": "Utility functions for logging and response formatting. Depends on: config."
 }

@@ -1,0 +1,37 @@
+{
+  "name": "codecrunch-vscode",
+  "displayName": "CodeCrunch",
+  "description": "Injects whole-codebase context from .codecrunch artifacts into AI coding assistants",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "activationEvents": [
+    "workspaceContains:**/*.codecrunch"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codecrunch.loadArtifact",
+        "title": "CodeCrunch: Load Artifact"
+      },
+      {
+        "command": "codecrunch.showStatus",
+        "title": "CodeCrunch: Show Status"
+      },
+      {
+        "command": "codecrunch.copyContext",
+        "title": "CodeCrunch: Copy Context to Clipboard"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.0.0"
+  }
+}

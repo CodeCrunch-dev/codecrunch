@@ -1,0 +1,8 @@
+{
+  "controller_a.ts|1773266450|phase2-0.1": "Module controller_a with 1 functions, 0 classes. Depends on: util\";.",
+  "controller_b.ts|1773266450|phase2-0.1": "Module controller_b with 1 functions, 0 classes. Depends on: util\";.",
+  "index.ts|1773266450|phase2-0.1": "Module index with 1 functions, 0 classes. Depends on: util\";, react\";.",
+  "lib.js|1773266450|phase2-0.1": "Module lib with 1 functions, 0 classes. Leaf dependency with no internal imports.",
+  "service.js|1773266450|phase2-0.1": "Module service with 1 functions, 0 classes. Depends on: lib, fs.",
+  "util.ts|1773266450|phase2-0.1": "Module util with 1 functions, 0 classes. Leaf dependency with no internal imports."
+}
